@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 
 import aws_cdk as cdk
-from aws_cdk import Tags
-from layers.stack import LambdaLayersStack
+from src.stack import LambdaPythonLayers
 
 app = cdk.App()
 
-LambdaLayersStack(app, "LambdaLayersStack")
+LambdaPythonLayers(app, "LambdaPythonLayers")
 
 app.synth()
