@@ -24,16 +24,16 @@ make deploy
 
 ### Add New layers
 
-Create layers at `src/layers/<layers-group>/<layers-name>/requirements.txt`
+Create layers at `src/layers/common/<layers-name>/requirements.txt`
 
 ```bash
-mkdir -p src/layers/python/<layers-group>/<layers-group>
+mkdir -p src/layers/common/<layers-name>
 ```
 
 You may add packages to requirements.txt
 
 ```bash
-touch src/layers/python/<layers-group>/<layers-group>/requirements.txt
+touch src/layers/python/common/<layers-name>/requirements.txt
 ```
 
 Deploy resources
