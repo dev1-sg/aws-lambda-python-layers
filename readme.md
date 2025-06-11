@@ -24,16 +24,16 @@ make deploy
 
 ### Add New layers
 
-Create layers at `./lambda/layers/python/<layers-name>/requirements.txt`
+Create layers at `src/layers/<layers-group>/<layers-name>/requirements.txt`
 
 ```bash
-mkdir -p ./lambda/layers/python/<layers-name>
+mkdir -p src/layers/python/<layers-group>/<layers-group>
 ```
 
 You may add packages to requirements.txt
 
 ```bash
-touch ./lambda/layers/python/requirements.txt
+touch src/layers/python/<layers-group>/<layers-group>/requirements.txt
 ```
 
 Deploy resources
