@@ -1,4 +1,4 @@
-# aws-lambda-python-layers
+# lambda-python-layers
 
 ### Prerequisites
 
