@@ -38,13 +38,10 @@ jobs:
           node-version: '22.15.1'
 
       - name: Install aws-cdk 
-        run:
-          shell: npm install -g aws-cdk
+        run: npm install -g aws-cdk
 
       - name: cdk bootstrap
-        run:
-          shell: make bootstrap
+        run: make bootstrap
 
       - name: cdk deploy
-        run:
-          shell: make deploy
+        run: make deploy
