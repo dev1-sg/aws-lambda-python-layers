@@ -33,6 +33,12 @@ jobs:
           role-session-name: aws-oidc-${{ github.repository.name }}-${{ github.run_id }}
           aws-region: ${{ env.AWS_DEFAULT_REGION }}
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: requirements.txt
+
       - uses: actions/setup-node@v4
         with:
           node-version: '22.15.1'
