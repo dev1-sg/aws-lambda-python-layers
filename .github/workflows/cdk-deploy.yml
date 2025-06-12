@@ -39,6 +39,10 @@ jobs:
           cache: 'pip'
           cache-dependency-path: requirements.txt
 
+      - run: python3 -m venv .venv
+
+      - run: source .venv/bin/activate
+
       - run: pip install -r requirements.txt
 
       - uses: actions/setup-node@v4
