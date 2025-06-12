@@ -51,6 +51,11 @@ jobs:
 
       - run: sudo npm install -g aws-cdk
 
+      - uses: actions/cache@v3
+        with:
+          path: cdk.out
+          key: ${{ runner.os }}-cdk-${{ hashFiles('**/*.py', '**/cdk.json', '**/requirements.txt') }}
+
       - run: make bootstrap
 
       - run: make deploy
