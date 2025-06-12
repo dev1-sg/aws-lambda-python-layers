@@ -9,7 +9,7 @@ class LambdaPythonLayers(Stack):
     def __init__(self, scope: Construct, id: str, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
 
-        root_dir = Path(__file__).parent / "layers" / "common"  # fixed path to layers/common
+        root_dir = Path(__file__).parent / "layers" / "common"
 
         for layer_dir in root_dir.iterdir():
             if not layer_dir.is_dir():
@@ -23,14 +23,16 @@ class LambdaPythonLayers(Stack):
             with open(requirements_file) as f:
                 for line in f:
                     line = line.strip()
-                    if not line:
+                    if not line or line.startswith("#"):
                         continue
-                    match = re.match(r"([\w\-]+)==([\d\.]+)", line)
+                    match = re.match(r"([\w\.\-]+)(?:==([\d\.]+))?", line)
                     if not match:
                         print(f"Skipping {layer_dir}: invalid format in line '{line}'")
                         dependencies = None
                         break
-                    dependencies.append(match.groups())
+                    name, version = match.groups()
+                    version = version or "latest"
+                    dependencies.append((name, version))
 
             if dependencies is None:
                 continue

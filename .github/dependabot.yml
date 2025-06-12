@@ -1,0 +1,17 @@
+---
+version: 2
+
+registries:
+  dockerhub-registry:
+    type: docker-registry
+    url: registry.hub.docker.com
+    username: ${{secrets.DOCKERHUB_USERNAME}}
+    password: ${{secrets.DOCKERHUB_PASSWORD}}
+
+updates:
+  - package-ecosystem: pip
+    directory: src/layers/common/*/
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: build
